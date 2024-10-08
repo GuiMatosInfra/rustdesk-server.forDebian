@@ -19,24 +19,38 @@
 [**FAQ**](https://github.com/rustdesk/rustdesk/wiki/FAQ)
 
 Self-host your own RustDesk server, it is free and open source.
+(Hospede seu próprio servidor RustDesk, ele é gratuito e de código aberto.)
 
-## How to build manually
+## Install Docker Debian 12
+
+#### Set up Docker's apt repository.
 
 ```bash
-cargo build --release
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
+### Add Repository Open Source.
 
-Three executables will be generated in target/release.
+```bash
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+### Install Docker.
 
-- hbbs - RustDesk ID/Rendezvous server
-- hbbr - RustDesk relay server
-- rustdesk-utils - RustDesk CLI utilities
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+### Verify that the installation is successful by running the hello-world image:
 
-You can find updated binaries on the [releases](https://github.com/rustdesk/rustdesk-server/releases) page.
-
-If you want extra features [RustDesk Server Pro](https://rustdesk.com/pricing.html) might suit you better.
-
-If you want to develop your own server, [rustdesk-server-demo](https://github.com/rustdesk/rustdesk-server-demo) might be a better and simpler start for you than this repo.
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
 
 ## Docker images
 
