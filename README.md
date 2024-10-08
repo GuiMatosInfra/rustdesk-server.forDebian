@@ -42,31 +42,31 @@ sudo apt-get update
 ```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-### Verify that the installation is successful by running the hello-world image:
+### Verify that the installation is successful by running the hello-world image.
 
 ```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 systemctl status docker
 ```
-### Enable Docker Start OS
+### Enable Docker Start OS.
 ```bash
 systemctl enable --now docker
 ```
 
 ## Docker images Rustdesk
 
-### Download Image RustDesk-Server:
+### Download Image RustDesk-Server.
 
 ```bash
 cd /opt
 git clone https://github.com/rustdesk/rustdesk-server
 cd rustdesk-server
 ```
-### Create DATA Folder
+### Create DATA Folder.
 ```bash
 mkdir data
 ```
-### Start Containers
+### Start Containers.
 ```bash
 docker compose up -d
 docker ps
@@ -77,7 +77,7 @@ docker ps
 cat /opt/rustdesk-user/data/id_ed25519.pub; echo
 ```
 
-### Finish Rustdesk Install
+### Finish Rustdesk Install.
 
 ## Extra Conf Rustdesk
 
