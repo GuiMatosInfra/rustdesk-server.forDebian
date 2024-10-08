@@ -1,11 +1,7 @@
 <p align="center">
   <a href="#how-to-build-manually">Manually</a> •
   <a href="#docker-images">Docker</a> •
-  <a href="#s6-overlay-based-images">S6-overlay</a> •
   <a href="#how-to-create-a-keypair">Keypair</a> •
-  <a href="#deb-packages">Debian</a> •
-  <a href="#env-variables">Variables</a><br>
-  [<a href="README-DE.md">Deutsch</a>] | [<a href="README-NL.md">Nederlands</a>] | [<a href="README-TW.md">繁體中文</a>] | [<a href="README-ZH.md">简体中文</a>]<br>
 </p>
 
 # RustDesk Server for Debian 12 (Clone do Projeto Principal)
@@ -50,21 +46,42 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 ```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+systemctl status docker
+```
+### Enable Docker Start OS
+```bash
+systemctl enable --now docker
 ```
 
-## Docker images
+## Docker images Rustdesk
 
-Docker images are automatically generated and published on every github release. We have 2 kind of images.
+### Download Image RustDesk-Server:
 
-### Classic image
+```bash
+cd /opt
+git clone https://github.com/rustdesk/rustdesk-server
+cd rustdesk-server
+```
+### Create DATA Folder
+```bash
+mkdir data
+```
+### Start Containers
+```bash
+docker compose up -d
+docker ps
+```
 
-These images are build against `ubuntu-20.04` with the only addition of the main binaries (`hbbr` and `hbbs`). They're available on [Docker hub](https://hub.docker.com/r/rustdesk/rustdesk-server/) with these tags:
+### key rustdesk configure.
+```bash
+cat /opt/rustdesk-user/data/id_ed25519.pub; echo
+```
 
-| architecture | image:tag |
-| --- | --- |
-| amd64 | `rustdesk/rustdesk-server:latest` |
-| arm64v8 | `rustdesk/rustdesk-server:latest-arm64v8` |
+### Finish Rustdesk Install
 
+## Extra Conf Rustdesk
+
+### Docker
 You can start these images directly with `docker run` with these commands:
 
 ```bash
