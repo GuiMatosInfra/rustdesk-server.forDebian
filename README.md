@@ -45,7 +45,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 ### Verify that the installation is successful.
 
 ```bash
-docker ps
+systemctl status docker
 ```
 ### Enable Docker Start OS.
 ```bash
