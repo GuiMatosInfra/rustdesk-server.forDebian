@@ -45,8 +45,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 ### Verify that the installation is successful by running the hello-world image.
 
 ```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-systemctl status docker
+docker ps
 ```
 ### Enable Docker Start OS.
 ```bash
@@ -74,7 +73,7 @@ docker ps
 
 ### key rustdesk configure.
 ```bash
-cat /opt/rustdesk-user/data/id_ed25519.pub; echo
+cat /opt/rustdesk-server/data/id_ed25519.pub; echo
 ```
 
 ### Finish Rustdesk Install.
