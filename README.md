@@ -17,7 +17,7 @@
 Self-host your own RustDesk server, it is free and open source.
 (Hospede seu próprio servidor RustDesk, ele é gratuito e de código aberto.)
 
-## Install Docker Debian 12
+## Basic Debian 12
 
 #### Set up Docker's apt repository.
 
